@@ -1,2 +1,2 @@
 # miscscripts
-A collection of miscellaneous shell scripts.
+This is a collection of miscellaneous shell scripts.

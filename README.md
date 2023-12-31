@@ -1,5 +1,5 @@
 # miscscripts
-This is a collection of miscellaneous shell scripts.
+A collection of miscellaneous shell scripts.
 
 ## Contents
 

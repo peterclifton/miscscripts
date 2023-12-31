@@ -7,10 +7,29 @@ import random
 
 def main(args):
     # print(vars(args))
+    if (args.list):
+        listfilms()
+    elif (args.film):
+        if args.film in bondfilms:
+            print('***', args.film, '***')
+            details = bondfilms[args.film]
+            for k,v in details.items():
+                print(k,':',v)
+        else:
+            print("%s film not found" % (args.film))
+    else:
+        default(number_of_films = args.number)
+    
+
+def default(number_of_films = 1):
     for i in range(args.number):
         film, details = random.choice(list(bondfilms.items()))
         print(film)
 
+def listfilms():
+    for title in bondfilms.keys():
+        print(title)
+    
 # --------------- Data ------------------
 '''
 # the data for the below 'bondfilms' dictionary was gotten 
@@ -184,5 +203,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-n", "--number", type=int, default=1)
     parser.add_argument("-v", "--verbose", action='store_true')
+    parser.add_argument("-l", "--list", action='store_true')
+    parser.add_argument("-f", "--film", help="film name", default=None)
     args = parser.parse_args()
     main(args)
+
+#  LocalWords:  args usr bondfilms listfilms

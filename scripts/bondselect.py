@@ -10,13 +10,7 @@ def main(args):
     if (args.list):
         listfilms()
     elif (args.film):
-        if args.film in bondfilms:
-            print('***', args.film, '***')
-            details = bondfilms[args.film]
-            for k,v in details.items():
-                print(k,':',v)
-        else:
-            print("%s film not found" % (args.film))
+        filmdetails(film=args.film)
     else:
         default(number_of_films = args.number)
     
@@ -29,7 +23,15 @@ def default(number_of_films = 1):
 def listfilms():
     for title in bondfilms.keys():
         print(title)
-    
+
+def filmdetails(film):
+    if film in bondfilms:
+        print('***', film, '***')
+        details = bondfilms[args.film]
+        for k,v in details.items():
+            print(k,':',v)
+    else:
+        print("%s film not found" % (film))    
 # --------------- Data ------------------
 '''
 # the data for the below 'bondfilms' dictionary was gotten 
